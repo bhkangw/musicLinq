@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MusicLinq</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style>
+        .red {
+            color: rgb(212, 41, 55);
+        }
+        .small{
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <a href="/logout" class="pull-right">Logout</a>
+    <div class="jumbotron"><h1>Welcome {{request.session.user_name}}!</h1></div>
+    <div class="col-md-6">
+    <div class="jumbotron">
+    <h2>Wall of Goodies</h2>
+    {% for i in all %}
+    <p><a href="{{i.link}}">{{i.song}}</a></p>
+    <p class="small">Posted by <a href="/users/{{i.user.id}}">{{i.user.first_name}}</a></p>
+    <a class="btn-success btn-sm" href="/dashboard/addfav/{{i.id}}" method="POST">Add to My List</a><br><br><br>
+    {% endfor %}
+    </div></div>
+    <div class="col-md-6">
+    <div class="jumbotron">
+    <h2>Your Favs</h2>
+    {% for i in fav %}
+    <p><a href="{{i.link}}">{{i.song}}</a></p>
+    <p class="small">Posted by <a href="/users/{{i.user.id}}">{{i.user.first_name}}</a></p>
+    <a class="btn-danger btn-sm" href="/dashboard/removefav/{{i.id}}" method="POST">Remove From My List</a><br><br><br>
+    {% endfor %}
+    </div></div>
+    <div>
+    <div class="jumbotron">
+    <h2>Add Your Jam:</h2>
+    <form action="/dashboard/add" method="POST">{% csrf_token %}
+        <p>Link: <input size="29" type="text" name="link" id=""></p>
+        <p>Song/Artist: <input size="29" type="text" name="song" id=""></p>
+        <input class="btn-primary btn" type="submit" value="Submit">
+    </form>
+    {% for message in messages %}
+    <li class="red">{{ message }}</li>
+    <br> {% endfor %}
+    </div></div></div>
+</body>
+</html>

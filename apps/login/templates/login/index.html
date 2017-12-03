@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker({ dateFormat: 'yy-mm-dd', changeYear: true, yearRange: "1930:2017", maxDate: 0});
+        });
+
+    </script>
+    <style>
+        .red {
+            color: rgb(212, 41, 55);
+        }
+        .small{
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="jumbotron"><h1>Welcome to MusicLinq</h1></div>
+    <div class="col-md-6">
+    <div class="jumbotron"><h1>Registration</h1>
+    <form method="POST" action='/register'>{% csrf_token %} 
+        <p> Name:
+        <input class="form-control" type="textarea" name="first_name"></p>
+        <p>Email:
+        <input class="form-control" type="text" name="email"></p>
+        <p> Password <span class="small">(8 or more characters)</span>:
+        <input class="form-control" type="password" name="password"></p>
+        <p> Confirm Password:
+        <input class="form-control" type="password" name="pwconfirm"></p>
+        <input class="btn btn-primary" type="submit" name="">
+    </form></div></div>
+    <div class="col-md-6">
+    <div class="jumbotron"><h1>Login</h1>
+    <form method="POST" action='/login'>{% csrf_token %} 
+        <p>Email:
+        <input class="form-control" type="text" name="email"></p>
+        <p>Password:
+        <input class="form-control" type="password" name="password"></p>
+        <input class="btn btn-primary" type="submit" name="">
+    </form>
+    <br><br>
+    </div></div>
+     <div>{% for message in messages %}
+    <li class="red">{{ message }}</li>
+    <br> {% endfor %}</div>
+</div>
+</body>
+</html>
