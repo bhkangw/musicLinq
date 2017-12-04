@@ -8,10 +8,10 @@ class SongManager(models.Manager):
         response = {'status': True, 'errors': []}
         if len(postData['link']) < 1:
             response['errors'].append(
-                "Link cannot be empty!")
+                "Please add a Spotify link!")
         if len(postData['song']) < 1:
             response['errors'].append(
-                "Song cannot be empty!")
+                "Song/artist cannot be empty!")
         if len(response['errors']) == 0:
             return response
         else:

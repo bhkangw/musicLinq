@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <title>Home Page</title>
+    <title>Linq | Sharing is Caring</title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -27,34 +27,40 @@
 </head>
 <body>
     <div class="container">
-    <div class="jumbotron"><h1>Welcome to MusicLinq</h1></div>
+    <div class="jumbotron"><h1>Welcome to MusicLinq!</h1>
+    <p>Linq is place to share music with friends 🤘</p></div>
+    <div class="col-md-6">
+        <div class="jumbotron">
+            <h1>Login</h1>
+            <form method="POST" action='/login'>{% csrf_token %}
+                <p>Email:
+                    <input class="form-control" type="text" name="email">
+                </p>
+                <p>Password:
+                    <input class="form-control" type="password" name="password">
+                </p>
+                <input class="btn btn-primary" type="submit" name="">
+            </form>
+            <br>
+            <br>
+        </div>
+            <div>{% for message in messages %}
+                <li class="red">{{ message }}</li>
+                <br> {% endfor %}</div>
+    </div>
     <div class="col-md-6">
     <div class="jumbotron"><h1>Registration</h1>
     <form method="POST" action='/register'>{% csrf_token %} 
         <p> Name:
-        <input class="form-control" type="textarea" name="first_name"></p>
+        <input class="form-control" placeholder="First Name only is okay" type="textarea" name="first_name"></p>
         <p>Email:
         <input class="form-control" type="text" name="email"></p>
-        <p> Password <span class="small">(8 or more characters)</span>:
+        <p> Password: <span class="small"></span>
         <input class="form-control" type="password" name="password"></p>
         <p> Confirm Password:
         <input class="form-control" type="password" name="pwconfirm"></p>
         <input class="btn btn-primary" type="submit" name="">
     </form></div></div>
-    <div class="col-md-6">
-    <div class="jumbotron"><h1>Login</h1>
-    <form method="POST" action='/login'>{% csrf_token %} 
-        <p>Email:
-        <input class="form-control" type="text" name="email"></p>
-        <p>Password:
-        <input class="form-control" type="password" name="password"></p>
-        <input class="btn btn-primary" type="submit" name="">
-    </form>
-    <br><br>
-    </div></div>
-     <div>{% for message in messages %}
-    <li class="red">{{ message }}</li>
-    <br> {% endfor %}</div>
 </div>
 </body>
 </html>

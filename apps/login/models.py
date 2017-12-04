@@ -4,7 +4,7 @@ import bcrypt
 from django.db import models
 import datetime
 
-NAME_REGEX = re.compile(r'^[a-zA-Z]\w+$')
+NAME_REGEX = re.compile(r'^[a-zA-Z ]\w+( \w+)*$')
 EMAIL_REGEX = re.compile(r'(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)')
 
 
