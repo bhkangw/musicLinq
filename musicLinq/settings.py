@@ -25,7 +25,7 @@ SECRET_KEY = 'wc&(8waubh$)c%^e((-n91!x=_o#)kc!742ah+q0cof9*4(x3b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['18.221.251.87', 'gotlinq.com', 'www.gotlinq.com']
 
 
 # Application definition
@@ -120,3 +120,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Discover our IP address
+ALLOWED_HOSTS += ip_addresses()
