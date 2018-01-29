@@ -2,7 +2,7 @@
 MusicLinq is place where friends can share music with each other.
 
 ## Motivation
-I realized that between friends, we send a lot of music to each other, but the links would always get lost amongst the jumble of texts, Facebook chats, and other apps. To solve this I built MusicLinq to create a centralized place where we can share music with each other. Friends can login and post new songs, favorite songs shared by others, and monitor their profile. It’s become our go-to place for new music! Built with Python/Django, using OOP, ORM, SQLite, REST, AWS.
+I realized that between my friends, we send a lot of music to each other, but the links would always get lost amongst the jumble of texts, Facebook chats, and other apps. To solve this I built MusicLinq to create a centralized place where we can share music with each other. Friends can login and post new songs, favorite songs shared by others, and monitor their profile. It’s become our go-to place for new music! Built with Python/Django, using OOP, ORM, SQLite, REST, AWS.
 
 ## Features
 - Handles opening links into Spotify app and/or dashboard effortlessly for the user.
